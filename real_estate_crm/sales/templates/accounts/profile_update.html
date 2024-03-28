@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="page-wrapper">
+    <!-- Page header -->
+    <div class="page-header d-print-none">
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-md-10">
+            <h2 class="page-title">
+                Payment Form
+            </h2>
+          </div>
+          <div class="col-md-2">
+            <a href="{% url 'payment_list' %}" class="btn btn-outline-secondary d-none d-sm-inline-block">
+               Return to Payment List
+              </a>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+            <div classs="row">
+              <div class="col-3">
+              </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Payments</h3><!-- Add the form to update the profile -->
+
+
+<form method="POST">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <button type="submit">Update</button>
+  </form>
+  {% if user.profile.profile_picture %}
+  <img src="{{ user.profile.profile_picture.url }}" alt="Profile Picture">
+{% endif %}
+</div>
+</div>
+</div>
+<div class="col-3">
+</div>
+
+</div>   
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+
+

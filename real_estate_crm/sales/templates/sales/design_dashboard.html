@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="page-wrapper">
+    <!-- Page header -->
+    <div class="page-header d-print-none">
+      <div class="container-xl">
+        <div class="row ">
+          <div class="col-8">
+            <h2 class="page-title">
+                Property List
+            </h2>
+          </div>
+          <div class="col-2">
+            <a href="{% url 'property_create' %}" class="btn btn-outline-secondary d-none d-sm-inline-block">
+               Add New Property
+            </a>
+          </div>
+          <div class="col-2">
+            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary d-none d-sm-inline-block">
+               Return to Dashboard
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="my-table" class="table">
+                <thead>
+                  <tr>
+                    <th>Location</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th class="text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="table-tbody">
+                    {% for property in properties %}
+                  <tr>
+                    <td><a href="{% url 'property_detail' property.id %}">{{ property.location }}</a></td>
+                    <td>{{ property.size }}</td>
+                    <td>{{ property.price }}</td>
+                    <td class="text-center">
+                        <!-- Actions -->
+                        <div class="accordion" id="accordion-{{ property.id }}">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading-{{ property.id }}">
+                                    <button class="accordion-button collapsed" type="button" style="padding: 3px;"
+                                        data-bs-toggle="collapse" data-bs-target="#collapse-{{ property.id }}"
+                                        aria-expanded="false">
+                                        Actions
+                                    </button>
+                                </h2>
+                                <div id="collapse-{{ property.id }}" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordion-{{ property.id }}">
+                                    <div class="accordion-body pt-0">
+                                        <a href="{% url 'property_update' property.id %}"
+                                            class="update-lead btn btn-ghost-primary active">
+                                            Edit
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

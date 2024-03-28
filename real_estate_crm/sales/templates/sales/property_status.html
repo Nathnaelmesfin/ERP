@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="page-wrapper">
+    <!-- Page header -->
+    <div class="page-header d-print-none">
+      <div class="container-xl">
+        <div class="row ">
+          <div class="col-8">
+            <h2 class="page-title">
+               Available Property List
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+<table id="stocktable" class="table">
+    <thead>
+      <tr>
+        <th>House Number</th>
+        <th>location</th>
+        <th>site</th>
+        <th>Bedrooms</th>
+        <th>floor</th>
+        <th>Lot</th>
+        <th>Block</th>
+        <th>Net Area</th>
+        <th>Price</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody class="table-tbody">
+    {% for property in filter.qs %}
+    <tr>
+        <td>{{ property.house_no }}</td>
+        <td>{{ property.location }}</td>
+        <td>{{ property.site }}</td>
+        <td>{{ property.bedroom_number }}</td>
+        <td>{{ property.floor }}</td>
+        <td>{{ property.loot_number }}</td>
+        <td>{{ property.block }}</td>
+        <td>{{ property.net_area }}</td>
+        <td>{{ property.price }}</td>
+        <td>{{ property.property_status.status }}</td>
+        <td>
+            <a href="{% url 'update_property_status' property.pk %}">Update Status</a>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% load static %}
+<!-- assets/templates/assets/asset_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset List</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+    <!-- Glass UI and Background -->
+    <style>
+        body {
+            background: url('{% static "images/dmc-white-bg.png" %}') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .glass-ui {
+            background: rgba(140, 190, 214, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 10px;
+        }
+        
+        .dataTables_wrapper .dataTables_filter input, 
+        .dataTables_wrapper .dataTables_length select {
+            background-color: #87CEEB; /* Sky blue color */ 
+            border: 1px solid #87CEEB;
+            border-radius: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container glass-ui p-3 mt-3">
+
+    
+    <div class="container mt-4" >
+        <h1 class="mb-4">Asset List</h1>
+        <div class="text-center">
+            <a href="{% url 'employee_upload' %}" class="btn login-button">Assets List</a>
+        </div>
+        
+        <table id="assetTable" class="table black-table" style="border-collapse: collapse; padding: 10px; margin: 10px;">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Assets</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                    <tr>
+                        <td>{{ employee.name }}</td>
+                        <td>
+                            {% for asset in employee.asset_set.all %}
+                                <p><strong>Type:</strong> {{ asset.item_type }}; <strong>Model:</strong> {{ asset.item_model }}; <strong>Taken Date:</strong> {{ asset.taken_date }}</p>
+                            {% empty %}
+                                <p>No assets assigned</p>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- At the end of asset_list.html, before the closing </body> tag -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('#assetTable').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

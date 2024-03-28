@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="page-wrapper">
+    <div class="page-header d-print-none">
+        <div class="container-xl">
+          <div class="row g-2 align-items-center">
+            <div class="col-10">
+                
+            </div>
+            <div class="col-2">
+                <a href="{% url 'sale_list' %}" class="btn btn-outline-secondary d-none d-sm-inline-block">
+                   Return to Sales List
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+        <div class="card">
+          <div class="card-body">
+            <div class="col-12">
+                
+                  
+              <h1>Sale Detail</h1>
+              <div>
+                  <h2>Details for Sale ID: {{ sale.id }}</h2>
+                  <p><strong>Customer:</strong> {{ sale.customer.name }}</p>
+                  <p><strong>Property:</strong> {{ sale.property.house_no }}</p>
+                  <p><strong>Agreement Number:</strong> {{ sale.agreement_number }}</p>
+                  <p><strong>Contract Amount:</strong> {{ sale.contract_amount }}</p>
+                  <p><strong>Contract Amount in Birr:</strong> {{ sale.contract_amount_birr }}</p>
+                  <p><strong>Exchange Rate:</strong> {{ sale.exchange_rate }}</p>
+                  <p><strong>Unit Price USD:</strong> {{ sale.unit_price_usd }}</p>
+                  <p><strong>Payment Plan:</strong> {{ sale.payment_plan }}</p>
+                  <p><strong>Contract Date:</strong> {{ sale.contract_date }}</p>
+                  <p><strong>Discount:</strong> {{ sale.discount }}</p>
+                  <p><strong>Branch:</strong> {{ sale.branch }}</p>
+                  <p><strong>Sold Via:</strong> {{ sale.sold_via }}</p>
+                  <p><strong>Total Paid Percent:</strong> {{ sale.total_paid_percent }}</p>
+                  <p><strong>Property Type:</strong> {{ sale.property_type }}</p>
+                  <p><strong>Finish Type:</strong> {{ sale.finish_type }}</p>
+                  <p><strong>Delivery Date in Months:</strong> {{ sale.delivery_date_in_months }}</p>
+                  <p><strong>Sales Supervisor:</strong> {{ sale.sales_supervisor }}</p>
+                  <p><strong>Sales Consultant:</strong> {{ sale.sales_consultant }}</p>
+                  <p><strong>Remark:</strong> {{ sale.remark }}</p>
+                  
+              </div>
+              <a href="{% url 'sale_list' %}">Back to Sales List</a>
+          
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+      
+    
+    

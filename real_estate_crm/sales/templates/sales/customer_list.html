@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="page-wrapper">
+    <!-- Page header -->
+    <div class="page-header d-print-none">
+      <div class="container-xl">
+        <div class="row ">
+          <div class="col-8">
+            <h2 class="page-title">
+                Customer List
+            </h2>
+          </div>
+          <div class="col-2">
+            <a href="{% url 'customer_create' %}" class="btn btn-outline-secondary d-none d-sm-inline-block">
+               Add New Customer
+              </a>
+        </div>
+          <div class="col-2">
+            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary d-none d-sm-inline-block">
+               Return to Dashboard
+              </a>
+        </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+        <div class="card">
+          <div class="card-body">
+            <div  class="table-responsive">
+              <table id="my-table" class="table">
+                <thead>
+                  <tr>
+                    <th>Customer Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Gender</th>
+                    
+                    <th class="text-center">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="table-tbody">
+                    {% for customer in customers %}
+                  <tr>
+                    <td><a href="{% url 'customer_detail' customer.id %}">{{ customer.name }}</a></td>
+                    <td>{{ customer.phone_number }}</td>
+                    <td>{{ customer.email }}</td>
+                    <td>{{ customer.address }}</td>
+                    <td>{{ customer.gender }}</td>
+                    <td class="text-center">
+                        <!-- Actions -->
+                        <div class="accordion" id="accordion-{{ customer.id }}">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading-{{ customer.id }}">
+                                    <button class="accordion-button collapsed" type="button" style="padding: 3px;"
+                                        data-bs-toggle="collapse" data-bs-target="#collapse-{{ customer.id }}"
+                                        aria-expanded="false">
+                                        Actions
+                                    </button>
+                                </h2>
+                                <div id="collapse-{{ customer.id }}" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordion-{{ customer.id }}">
+                                    <div class="accordion-body pt-0">
+                                        <a href="{% url 'customer_update' customer.id %}"
+                                            class="update-lead btn btn-ghost-primary active">
+                                            Edit
+                                        </a>
+                                        <a href="./"
+                                            class="update-lead btn btn-ghost-danger active">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+      
+    
+    

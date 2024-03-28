@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="page-wrapper">
+    <div class="page-header d-print-none">
+        <div class="container-xl">
+          <div class="row g-2 align-items-center">
+            <div class="col-10">
+                
+            </div>
+            <div class="col-2">
+                <a href="{% url 'payment_list' %}" class="btn btn-outline-secondary d-none d-sm-inline-block">
+                   Return to Payments List
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+        <div class="card">
+          <div class="card-body">
+            <div class="col-12">
+                
+                  
+              <h1>Payment Detail</h1>
+              <div>
+                  <h2>Payment ID: {{ payment.id }}</h2>
+                  <p><strong>Sale:</strong> {{ payment.sales }}</p>
+                  <p><strong>Payment Number:</strong> {{ payment.payment_number }}</p>
+                  <p><strong>Amount:</strong> {{ payment.amount }}</p>
+                  <p><strong>Exchange Rate:</strong> {{ payment.exchange_rate }}</p>
+                  <p><strong>Invoice Number:</strong> {{ payment.invoice_number }}</p>
+                  <p><strong>Bank:</strong> {{ payment.bank }}</p>
+                  <p><strong>Payment Date:</strong> {{ payment.payment_date }}</p>
+                  <p><strong>Due Date:</strong> {{ payment.due_date }}</p>
+                  <p><strong>Is Paid:</strong> {{ payment.is_paid }}</p>
+                  <p><strong>Is Overdue:</strong> {{ payment.is_overdue }}</p>
+                  <p><strong>Remaining Amount:</strong> {{ payment.remaining_amount }}</p>
+                  <p><strong>Remark:</strong> {{ payment.remark }}</p>
+              </div>
+              <a href="{% url 'payment_list' %}">Back to Payment List</a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+      
+    
+    

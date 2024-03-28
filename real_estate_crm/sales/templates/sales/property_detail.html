@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="page-wrapper">
+    <div class="page-header d-print-none">
+        <div class="container-xl">
+          <div class="row g-2 align-items-center">
+            <div class="col-10">
+                
+            </div>
+            <div class="col-2">
+                <a href="{% url 'property_list' %}" class="btn btn-outline-secondary d-none d-sm-inline-block">
+                   Return to Payments List
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+        <div class="card">
+          <div class="card-body">
+            <div class="col-12">
+                
+                  
+                <h2>Property: {{ property.house_no }} - {{ property.location }}</h2>
+                <p><strong>Size:</strong> {{ property.size }}</p>
+                <p><strong>Price:</strong> {{ property.price }}</p>
+                <p><strong>Area:</strong> {{ property.area }}</p>
+                <p><strong>Subcity:</strong> {{ property.subcity }}</p>
+                <p><strong>Woreda:</strong> {{ property.woreda }}</p>
+                <p><strong>Block:</strong> {{ property.block }}</p>
+                <p><strong>Floor:</strong> {{ property.floor }}</p>
+                <p><strong>Position on Floor:</strong> {{ property.position_floor }}</p>
+                <p><strong>View:</strong> {{ property.view }}</p>
+                <p><strong>Number of Bedrooms:</strong> {{ property.bedroom_number }}</p>
+                <p><strong>Kitchen:</strong> {{ property.kitchen }}</p>
+                <p><strong>Living Room:</strong> {{ property.living_room }}</p>
+                <p><strong>Toilet:</strong> {{ property.toilet }}</p>
+                <p><strong>Apartment Type:</strong> {{ property.apartment_type }}</p>
+                <p><strong>Extra Balconies:</strong> {{ property.extra_balconies }}</p>
+                <p><strong>Balcony Area:</strong> {{ property.balcony_area }}</p>
+                <p><strong>Net Area:</strong> {{ property.net_area }}</p>
+                <p><strong>Gross Area:</strong> {{ property.gross_area }}</p>
+                <p><strong>Common Area:</strong> {{ property.common_area }}</p>
+                <p><strong>Total Units Area:</strong> {{ property.total_units_area }}</p>
+                <p><strong>Total Area:</strong> {{ property.total_area }}</p>
+                <p><strong>Has Lift:</strong> {{ property.has_lift }}</p>
+                <p><strong>Has Generator:</strong> {{ property.has_generator }}</p>
+                <p><strong>Has Parking:</strong> {{ property.has_parking }}</p>
+                <p><strong>Has Water Pump:</strong> {{ property.has_water_pump }}</p>
+                <p><strong>Project Type:</strong> {{ property.project_type }}</p>
+                <p><strong>Status:</strong> {{ property.status }}</p>
+                <p><strong>Marketing Director:</strong> {{ property.marketing_director }}</p>
+                <p><strong>Supervisor Name:</strong> {{ property.supervisor_name }}</p>
+                <p><strong>Receiver Name:</strong> {{ property.receiver_name }}</p>
+                <p><strong>Description:</strong> {{ property.description }}</p>
+            </div>
+            <a href="{% url 'property_list' %}">Back to Property List</a>
+        
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+      
+    
+    

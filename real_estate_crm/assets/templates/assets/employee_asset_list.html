@@ -1,0 +1,32 @@
+<!-- assets/templates/assets/employee_asset_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Asset List</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Employee Asset List</h1>
+        {% for employee in employees %}
+            <div class="card mt-3">
+                <div class="card-header">
+                    {{ employee.name }} ({{ employee.position }})
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for asset in employee.asset_set.all %}
+                        <li class="list-group-item">
+                            {{ asset.item_type }} - {{ asset.item_model }} (Taken Date: {{ asset.taken_date }})
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item">No assets assigned</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+    <!-- Include Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4

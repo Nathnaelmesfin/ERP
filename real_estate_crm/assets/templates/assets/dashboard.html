@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .stat-card {
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            min-height: 25vh; /* Set minimum height to 25% of the viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .login-button {
+            background-color: #87CEEB; /* Sky blue color */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition: background-color 0.3s ease;
+        }
+        .login-button:hover {
+            background-color: #7EC0EE;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="dashboard-header">
+            <h1>Welcome to the DMC Asset Management Dashboard</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="stat-card alert-info">
+                    <div>
+                        <strong>Total Assets:</strong>
+                        <p>{{ total_assets_count }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card alert-success">
+                    <div>
+                        <strong>Total Employees:</strong>
+                        <p>{{ total_employees_count }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card alert-warning">
+                    <div>
+                        <strong>Assets Registered Today:</strong>
+                        <p>{{ assets_registered_today_count }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="{% url 'asset_list' %}" class="btn login-button">Assets List</a>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

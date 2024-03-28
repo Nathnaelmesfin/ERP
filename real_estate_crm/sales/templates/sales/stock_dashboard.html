@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-wrapper">
+  <div class="page-header d-print-none">
+    <div class="container-xl">
+      <div class="row ">
+        <div class="col-8">
+          <h2 class="page-title">
+             Property Search Filter
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page body -->
+  <div class="page-body">
+    <div class="container-xl">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <form method="get">
+              {{ filter.form.as_p }}
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+                <div class="page-wrapper">
+                  <!-- Page header -->
+                    <div class="page-header d-print-none">
+                      <div class="container-xl">
+                        <div class="row ">
+                          <div class="col-8">
+                            <h2 class="page-title">
+                               Available Property List
+                            </h2>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Page body -->
+                    <div class="page-body">
+                      <div class="container-xl">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="table-responsive">
+                              <table id="stocktable" class="table">
+                                <thead>
+                                  <tr>
+                                      <th>House Number</th>
+                                      <th>location</th>
+                                      <th>site</th>
+                                      <th>Bedrooms</th>
+                                      <th>floor</th>
+                                      <th>Lot</th>
+                                      <th>Block</th>
+                                      <th>Net Area</th>
+                                      <th>Price</th>
+                                      <th>Status</th>
+                                      <th>Actions</th>
+                                  </tr>
+                                </thead>
+                                <tbody class="table-tbody">
+                                  {% for property in filter.qs %}
+                                    <tr>
+                                        <td>{{ property.house_no }}</td>
+                                        <td>{{ property.location }}</td>
+                                        <td>{{ property.site }}</td>
+                                        <td>{{ property.bedroom_number }}</td>
+                                        <td>{{ property.floor }}</td>
+                                        <td>{{ property.loot_number }}</td>
+                                        <td>{{ property.block }}</td>
+                                        <td>{{ property.net_area }}</td>
+                                        <td>{{ property.price }}</td>
+                                        <td>{{ property.property_status.status }}</td>
+                                        <td>
+                                            <a href="">Update Status</a>
+                                        </td>
+                                    </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}     
+
+      <div class="page-wrapper">
+        <!-- Page header -->
+        <div class="page-header d-print-none">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col-auto">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                  Overview
+                </div>
+                <h2 class="page-title">
+                  SALES RECORDS
+                </h2>
+              </div>
+              <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+                  <a href="{% url 'customer_list' %}" class="btn btn-outline-primary d-none d-sm-inline-block">
+                    VIEW CUSTOMER LIST
+                    
+                  </a>
+                  <a href="{% url 'customer_create' %}" class="btn btn-outline-primary d-none d-sm-inline-block">
+                    ADD NEW CUSTOMER
+                  </a>
+                  <a href="{% url 'sale_create' %}" class="btn btn-outline-primary d-none d-sm-inline-block">
+                    ADD NEW SALES RECORD
+                  </a>
+                </div>
+              </div>
+              <!-- Page title actions -->
+              </div>
+            </div>
+          </div>
+        <br><br>
+        </div>
+
+        <div class="page-wrapper">
+        <!-- Table -->
+        <div class="table-responsive">
+          <table id="my-table" class="table card-table table-vcenter text-nowrap datatable">
+              <thead>
+                  <tr>
+                      <th class="w-1"></th>
+                      <th class="w-1"></th>
+                      <th>Property</th>
+                      <th>Customer</th>
+                      <th>Date</th>
+                      <th>Price</th>
+                      <th>Sales Supervisor</th>
+                      <th>Branch</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for sale in sales %}
+                  <tr>
+                      <td></td>
+                      <td><span class="text-muted">{{ sale.id }}</span></td>
+                      <td><a href="{% url 'sale_detail' sale.id %}" class="text-reset" tabindex="-1">{{ sale.property }}</a></td>
+                      <td>{{ sale.customer }}</td>
+                      <td>{{ sale.contract_date }}</td>
+                      <td>${{ sale.price }}</td>
+                      <td>{{ sale.sales_supervisor }}</td>
+                      <td>{{ sale.branch }}</td>
+                      <td class="text-center">
+                          <!-- Actions -->
+                          <div class="accordion" id="accordion-{{ sale.id }}">
+                              <div class="accordion-item">
+                                  <h2 class="accordion-header" id="heading-{{ sale.id }}">
+                                      <button class="accordion-button collapsed" type="button" style="padding: 3px;"
+                                          data-bs-toggle="collapse" data-bs-target="#collapse-{{ sale.id }}"
+                                          aria-expanded="false">
+                                          Actions
+                                      </button>
+                                  </h2>
+                                  <div id="collapse-{{ sale.id }}" class="accordion-collapse collapse"
+                                      data-bs-parent="#accordion-{{ sale.id }}">
+                                      <div class="accordion-body pt-0">
+                                          <a href="{% url 'sale_update' sale.id %}"
+                                              class="update-lead btn btn-ghost-primary active">
+                                              Edit
+                                          </a>
+                                          <a href="./"
+                                              class="update-lead btn btn-ghost-danger active">
+                                              Delete
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+      
+  </div>
+
+
+  
+  
+      {% endblock %}

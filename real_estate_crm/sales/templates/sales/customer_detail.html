@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="page-wrapper">
+    <div class="page-header d-print-none">
+        <div class="container-xl">
+          <div class="row g-2 align-items-center">
+            <div class="col-10">
+                
+            </div>
+            <div class="col-2">
+                <a href="{% url 'customer_list' %}" class="btn btn-outline-secondary d-none d-sm-inline-block">
+                   Return to Customer List
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+        <div class="card">
+          <div class="card-body">
+            <div class="col-12">
+                
+                  
+              <h1>Customer Detail</h1>
+              <div>
+                  <h2>{{ customer.name }}</h2>
+                  <p><strong>Gender:</strong> {{ customer.gender }}</p>
+                  <p><strong>Address:</strong> {{ customer.address }}</p>
+                  <p><strong>Phone Number:</strong> {{ customer.phone_number }}</p>
+                  <p><strong>Email:</strong> {{ customer.email }}</p>
+                  <p><strong>Contact Info:</strong> {{ customer.contact_info }}</p>
+              </div>
+              <a href="{% url 'customer_list' %}">Back to Customer List</a>
+          
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+      
+    
+    

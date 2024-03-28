@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="page-wrapper">
+    <!-- Page header -->
+    <div class="page-header d-print-none">
+      <div class="container-xl">
+        <div class="row g-2 align-items-center">
+          <div class="col">
+            <h2 class="page-title">
+              Payment Due
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Page body -->
+    <div class="page-body">
+      <div class="container-xl">
+        <div class="card">
+          <div class="card-body">
+            <div  class="table-responsive">
+              <table id="my-table" class="table">
+                <thead>
+                  <tr>
+                    <th>Customer Name</th>
+                    <th>Payment Amount</th>
+                    <th>Payment Date</th>
+                    <th>Due Date</th>
+                    <th> </th>
+                  </tr>
+                </thead>
+                <tbody class="table-tbody">
+                    {% for payment in due_payments %}
+                  <tr>
+                    <td>{{ payment.sales.customer.name }}</td>
+                    <td>{{ payment.amount }}</td>
+                    <td>{{ payment.payment_date }}</td>
+                    <td>{{ payment.due_date }}</td>
+                    <td class="text-center">
+                      <!-- Actions -->
+                      <div class="accordion" id="accordion-{{ payment.id }}">
+                          <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading-{{ payment.id }}">
+                                  <button class="accordion-button collapsed" type="button" style="padding: 3px;"
+                                      data-bs-toggle="collapse" data-bs-target="#collapse-{{ payment.id }}"
+                                      aria-expanded="false">
+                                      Actions
+                                  </button>
+                              </h2>
+                              <div id="collapse-{{ payment.id }}" class="accordion-collapse collapse"
+                                  data-bs-parent="#accordion-{{ payment.id }}">
+                                  <div class="accordion-body pt-0">
+                                      <a href="{% url 'payment_detail' payment.id %}"
+                                          class="update-lead btn btn-ghost-primary active">
+                                          View
+                                      </a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </td>
+
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
+
+      
+    
+    
