@@ -1,5 +1,3 @@
-# alx readme.md
-
 # **RealEstatePro**
 
 ## **Introduction**
@@ -9,7 +7,7 @@
 - **Deployed Site**: [RealEstatePro Live](http://167.99.34.73) (This would be a link to your deployed site)
 - **Author LinkedIn**: [Nathnael Mesfin](https://www.linkedin.com/in/nathnael-mesfin) (Update with correct URL)
 
-![Screenshot 2024-03-07 235910.png](Screenshot_2024-03-07_235910.png)
+![Screenshot of RealEstatePro](Screenshot 2024-03-07 235910.png)
 
 **Installation**
 
@@ -21,7 +19,7 @@ git clone https://github.com/nathnaelmesfin/ERP.git
 
 cd ERP
 
-cd real-estate-crm
+cd real_estate_crm
 
 
 python -m venv env
