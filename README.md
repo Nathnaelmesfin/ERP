@@ -9,7 +9,7 @@
 - **Deployed Site**: [RealEstatePro Live](http://167.99.34.73) (This would be a link to your deployed site)
 - **Author LinkedIn**: [Nathnael Mesfin](https://www.linkedin.com/in/nathnael-mesfin) (Update with correct URL)
 
-![Screenshot 2024-03-07 235910.png](alx%20readme%20md%2036e5f67a7e844ce0a9015e11db385ba7/Screenshot_2024-03-07_235910.png)
+![Screenshot 2024-03-07 235910.png](Screenshot_2024-03-07_235910.png)
 
 **Installation**
 
@@ -18,6 +18,11 @@ To set up RealEstatePro locally, follow these steps:
 ```bash
 
 git clone https://github.com/nathnaelmesfin/ERP.git
+
+cd ERP
+
+cd real-estate-crm
+
 
 python -m venv env
 
@@ -28,7 +33,7 @@ python -m venv env
 
 #then
 
-cd ERP
+
 # Install dependencies
 pip install -r requirements.txt
 # Run the application
