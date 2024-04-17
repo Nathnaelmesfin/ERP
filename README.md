@@ -7,7 +7,7 @@
 - **Deployed Site**: [RealEstatePro Live](http://167.99.34.73) (This would be a link to your deployed site)
 - **Author LinkedIn**: [Nathnael Mesfin](https://www.linkedin.com/in/nathnael-mesfin) (Update with correct URL)
 
-![Screenshot of RealEstatePro](Screenshot 2024-03-07 235910.png)
+![Screenshot of RealEstatePro](screenshot.png)
 
 **Installation**
 
