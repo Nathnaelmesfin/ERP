@@ -4,8 +4,8 @@
 
 **RealEstatePro** integrates CRM, stock management, asset management, and HRM into a unified ERP platform specifically designed for the real estate sector. This project aims to enhance operational efficiency and improve data management to support business growth in real estate companies.
 
-- **Deployed Site**: [RealEstatePro Live](http://167.99.34.73) (This would be a link to your deployed site)
-- **Author LinkedIn**: [Nathnael Mesfin](https://www.linkedin.com/in/nathnael-mesfin) (Update with correct URL)
+- **Deployed Site**: [RealEstatePro Live](http://167.99.34.73) 
+- **Author LinkedIn**: [Nathnael Mesfin](https://www.linkedin.com/in/nathnael-mesfin)
 
 ![Screenshot of RealEstatePro](screenshot.png)
 
